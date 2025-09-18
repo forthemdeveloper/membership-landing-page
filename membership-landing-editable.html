@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finally, Print Media is Back - Support Queer Media</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            line-height: 1.6;
+            color: #000000;
+            background-color: #FFFFFF;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero h1 .highlight {
+            color: #BABA00;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            background: #BABA00;
+            color: #000000;
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(186, 186, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .hero-cta:hover {
+            background: #DE0100;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(222, 1, 0, 0.4);
+        }
+
+        .hero-stats {
+            color: #666;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+
+        /* Magazine Image */
+        .magazine-showcase {
+            padding: 40px 0 80px;
+            text-align: center;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 0;
+            background: #f8f8f8;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pricing-header h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* Toggle Controls */
+        .toggle-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .toggle-group {
+            display: flex;
+            background: #e0e0e0;
+            border-radius: 50px;
+            padding: 4px;
+        }
+
+        .toggle-btn {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+
+        .toggle-btn.active {
+            background: #BABA00;
+            color: #000000;
+            box-shadow: 0 2px 8px rgba(186, 186, 0, 0.3);
+        }
+
+        /* Desktop Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* Mobile Swiper */
+        .pricing-swiper {
+            display: none;
+            position: relative;
+            overflow: hidden;
+            margin: 0 -20px;
+        }
+
+        .swiper-container {
+            display: flex;
+            transition: transform 0.3s ease;
+            padding: 0 20px;
+        }
+
+        .swiper-slide {
+            min-width: calc(100vw - 60px);
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .swiper-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .swiper-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .swiper-dot.active {
+            background: #BABA00;
+            transform: scale(1.2);
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            background: white;
+            border: 3px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .pricing-card.featured {
+            border: 4px solid #BABA00;
+            background: #BABA00;
+            color: #000000;
+            box-shadow: 0 20px 60px rgba(186, 186, 0, 0.3);
+        }
+
+        .pricing-card.featured::before {
+            content: attr(data-badge);
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #DE0100;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .pricing-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .pricing-card .original-price {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .pricing-card .price {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .billing-period {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .pricing-card .savings {
+            background: #DE0100;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .pricing-card.featured .savings {
+            background: #000000;
+            color: white;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            font-size: 1rem;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0069E4;
+            font-weight: bold;
+        }
+
+        .pricing-card.featured .features-list li:before {
+            color: #DE0100;
+        }
+
+        .pricing-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: #000000;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .pricing-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .pricing-card.featured .pricing-btn {
+            background: #000000;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: #f8f8f8;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: #524426;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #BABA00 0%, #0069E4 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .final-cta .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .final-cta .guarantee {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .final-cta-btn {
+            background: white;
+            color: #000000;
+            padding: 25px 50px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .final-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .final-cta .terms {
+            margin-top: 20px;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            /* Hide desktop grid, show mobile swiper */
+            .pricing-grid {
+                display: none;
+            }
+            
+            .pricing-swiper {
+                display: block;
+            }
+
+            .toggle-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pricing-card {
+                margin: 0 10px;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 id="hero-headline"></h1>
+            <p class="subtitle" id="hero-subtitle"></p>
+            <a href="#" class="hero-cta" id="hero-cta"></a>
+            <p class="hero-stats" id="hero-stats"></p>
+        </div>
+    </section>
+
+    <!-- Magazine Showcase -->
+    <section class="magazine-showcase">
+        <div class="container">
+            <div style="background: #CEC6BA; padding: 40px; border-radius: 20px; margin: 40px 0;">
+                <p style="font-size: 1.1rem; color: #524426; font-style: italic;">📍 Beautiful magazine image would go here - showing the magazine open on a coffee table with plants and coffee, similar to Loveable's aesthetic</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-header">
+                <h2 id="pricing-title"></h2>
+            </div>
+
+            <!-- Toggle Controls -->
+            <div class="toggle-controls">
+                <div class="toggle-group">
+                    <button class="toggle-btn billing-toggle" data-billing="monthly">Monthly</button>
+                    <button class="toggle-btn billing-toggle active" data-billing="quarterly">Quarterly</button>
+                    <button class="toggle-btn billing-toggle" data-billing="annually">Annually</button>
+                </div>
+            </div>
+
+            <!-- Desktop Grid -->
+            <div class="pricing-grid">
+                <!-- Media -->
+                <div class="pricing-card">
+                    <h3 id="media-name"></h3>
+                    <div class="price" id="media-price"></div>
+                    <div class="billing-period" id="media-billing"></div>
+                    <div class="savings" id="media-savings" style="display: none;"></div>
+                    <ul class="features-list" id="media-features"></ul>
+                    <a href="#" class="pricing-btn" id="media-btn"></a>
+                </div>
+
+                <!-- All Access (Featured) -->
+                <div class="pricing-card featured" id="allaccess-card">
+                    <h3 id="allaccess-name"></h3>
+                    <div class="original-price" id="allaccess-original"></div>
+                    <div class="price" id="allaccess-price"></div>
+                    <div class="billing-period" id="allaccess-billing"></div>
+                    <div class="savings" id="allaccess-savings"></div>
+                    <ul class="features-list" id="allaccess-features"></ul>
+                    <a href="#" class="pricing-btn" id="allaccess-btn"></a>
+                </div>
+
+                <!-- Support -->
+                <div class="pricing-card">
+                    <h3 id="support-name"></h3>
+                    <div class="original-price" id="support-original"></div>
+                    <div class="price" id="support-price"></div>
+                    <div class="billing-period" id="support-billing"></div>
+                    <div class="savings" id="support-savings"></div>
+                    <ul class="features-list" id="support-features"></ul>
+                    <a href="#" class="pricing-btn" id="support-btn"></a>
+                </div>
+            </div>
+
+            <!-- Mobile Swiper -->
+            <div class="pricing-swiper">
+                <div class="swiper-container" id="swiperContainer">
+                    <!-- Media Card -->
+                    <div class="swiper-slide">
+                        <div class="pricing-card">
+                            <h3 id="mobile-media-name"></h3>
+                            <div class="price mobile-media-price"></div>
+                            <div class="billing-period mobile-media-billing"></div>
+                            <div class="savings mobile-media-savings" style="display: none;"></div>
+                            <ul class="features-list" id="mobile-media-features"></ul>
+                            <a href="#" class="pricing-btn" id="mobile-media-btn"></a>
+                        </div>
+                    </div>
+
+                    <!-- All Access Card (Featured) -->
+                    <div class="swiper-slide">
+                        <div class="pricing-card featured" id="mobile-allaccess-card">
+                            <h3 id="mobile-allaccess-name"></h3>
+                            <div class="original-price mobile-allaccess-original"></div>
+                            <div class="price mobile-allaccess-price"></div>
+                            <div class="billing-period mobile-allaccess-billing"></div>
+                            <div class="savings mobile-allaccess-savings"></div>
+                            <ul class="features-list" id="mobile-allaccess-features"></ul>
+                            <a href="#" class="pricing-btn" id="mobile-allaccess-btn"></a>
+                        </div>
+                    </div>
+
+                    <!-- Support Card -->
+                    <div class="swiper-slide">
+                        <div class="pricing-card">
+                            <h3 id="mobile-support-name"></h3>
+                            <div class="original-price mobile-support-original"></div>
+                            <div class="price mobile-support-price"></div>
+                            <div class="billing-period mobile-support-billing"></div>
+                            <div class="savings mobile-support-savings"></div>
+                            <ul class="features-list" id="mobile-support-features"></ul>
+                            <a href="#" class="pricing-btn" id="mobile-support-btn"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper Dots -->
+                <div class="swiper-dots">
+                    <div class="swiper-dot" data-slide="0"></div>
+                    <div class="swiper-dot active" data-slide="1"></div>
+                    <div class="swiper-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonial-grid" id="testimonial-grid">
+                <!-- Testimonials will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 id="final-cta-headline"></h2>
+            <p class="subtitle" id="final-cta-subtitle"></p>
+            <p class="guarantee" id="final-cta-guarantee"></p>
+            <a href="#" class="final-cta-btn" id="final-cta-btn"></a>
+            <p class="terms" id="final-cta-terms"></p>
+        </div>
+    </section>
+
+    <!-- Load the content from the separate file -->
+    <script src="content.js"></script>
+    <script src="rateLimiter.js"></script>
+
+    <script>
+        // Mobile swiper state
+        let currentSlide = 1; // Start on All Access (index 1)
+        let startX = 0;
+        let isDragging = false;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load all content from the content.js file
+            loadContent();
+
+            // Billing toggle functionality
+            const billingToggles = document.querySelectorAll('.billing-toggle');
+            
+            billingToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    billingToggles.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    const selectedBilling = this.dataset.billing;
+                    updatePricing(selectedBilling);
+                    updateCTAs(selectedBilling);
+                });
+            });
+
+            // Mobile swiper functionality
+            const swiperContainer = document.getElementById('swiperContainer');
+            const swiperDots = document.querySelectorAll('.swiper-dot');
+            
+            // Set initial position to All Access
+            updateSwiperPosition();
+            
+            // Touch events for swiping
+            swiperContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+            swiperContainer.addEventListener('touchmove', handleTouchMove, { passive: true });
+            swiperContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
+            
+            // Mouse events for desktop testing
+            swiperContainer.addEventListener('mousedown', handleMouseStart);
+            swiperContainer.addEventListener('mousemove', handleMouseMove);
+            swiperContainer.addEventListener('mouseup', handleMouseEnd);
+            swiperContainer.addEventListener('mouseleave', handleMouseEnd);
+            
+            // Dot navigation
+            swiperDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSwiperPosition();
+                    updateSwiperDots();
+                });
+            });
+        });
+
+        function loadContent() {
+            const content = WEBSITE_CONTENT;
+            
+            // Hero section
+            document.getElementById('hero-headline').innerHTML = 'Finally, <span class="highlight">' + content.hero.headline.replace('Finally, ', '').replace('Print Media is Back', 'Print Media is Back') + '</span>';
+            document.getElementById('hero-subtitle').textContent = content.hero.subtitle;
+            document.getElementById('hero-stats').textContent = content.hero.stats;
+            
+            // Pricing section
+            document.getElementById('pricing-title').textContent = content.pricing.sectionTitle;
+            
+            // Media tier
+            document.getElementById('media-name').textContent = content.pricing.media.name;
+            document.getElementById('mobile-media-name').textContent = content.pricing.media.name;
+            document.getElementById('media-btn').textContent = content.pricing.media.buttonText;
+            document.getElementById('mobile-media-btn').textContent = content.pricing.media.buttonText;
+            
+            // All Access tier
+            document.getElementById('allaccess-name').textContent = content.pricing.allAccess.name;
+            document.getElementById('mobile-allaccess-name').textContent = content.pricing.allAccess.name;
+            document.getElementById('allaccess-card').setAttribute('data-badge', content.pricing.allAccess.badge);
+            document.getElementById('mobile-allaccess-card').setAttribute('data-badge', content.pricing.allAccess.badge);
+            document.getElementById('allaccess-btn').textContent = content.pricing.allAccess.buttonText;
+            document.getElementById('mobile-allaccess-btn').textContent = content.pricing.allAccess.buttonText;
+            
+            // Support tier
+            document.getElementById('support-name').textContent = content.pricing.support.name;
+            document.getElementById('mobile-support-name').textContent = content.pricing.support.name;
+            document.getElementById('support-btn').textContent = content.pricing.support.buttonText;
+            document.getElementById('mobile-support-btn').textContent = content.pricing.support.buttonText;
+            
+            // Features lists
+            loadFeatures('media-features', content.pricing.media.features);
+            loadFeatures('mobile-media-features', content.pricing.media.features);
+            loadFeatures('allaccess-features', content.pricing.allAccess.features);
+            loadFeatures('mobile-allaccess-features', content.pricing.allAccess.features);
+            loadFeatures('support-features', content.pricing.support.features);
+            loadFeatures('mobile-support-features', content.pricing.support.features);
+            
+            // Testimonials
+            const testimonialGrid = document.getElementById('testimonial-grid');
+            testimonialGrid.innerHTML = '';
+            content.testimonials.forEach(testimonial => {
+                const testimonialDiv = document.createElement('div');
+                testimonialDiv.className = 'testimonial';
+                testimonialDiv.innerHTML = `
+                    <p class="testimonial-text">"${testimonial.text}"</p>
+                    <p class="testimonial-author">${testimonial.author}</p>
+                `;
+                testimonialGrid.appendChild(testimonialDiv);
+            });
+            
+            // Final CTA
+            document.getElementById('final-cta-headline').textContent = content.finalCTA.headline;
+            document.getElementById('final-cta-subtitle').textContent = content.finalCTA.subtitle;
+            document.getElementById('final-cta-guarantee').textContent = content.finalCTA.guarantee;
+            document.getElementById('final-cta-terms').textContent = content.finalCTA.terms;
+            
+            // Set initial pricing and CTAs
+            updatePricing('quarterly');
+            updateCTAs('quarterly');
+        }
+
+        function loadFeatures(elementId, features) {
+            const featuresList = document.getElementById(elementId);
+            featuresList.innerHTML = '';
+            features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+        }
+
+        // Rest of the JavaScript functions remain the same...
+        function handleTouchStart(e) {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        }
+
+        function handleTouchMove(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+        }
+
+        function handleTouchEnd(e) {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0 && currentSlide < 2) {
+                    currentSlide++;
+                } else if (diffX < 0 && currentSlide > 0) {
+                    currentSlide--;
+                }
+                updateSwiperPosition();
+                updateSwiperDots();
+            }
+        }
+
+        function handleMouseStart(e) {
+            startX = e.clientX;
+            isDragging = true;
+            e.preventDefault();
+        }
+
+        function handleMouseMove(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+        }
+
+        function handleMouseEnd(e) {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const endX = e.clientX;
+            const diffX = startX - endX;
+            
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0 && currentSlide < 2) {
+                    currentSlide++;
+                } else if (diffX < 0 && currentSlide > 0) {
+                    currentSlide--;
+                }
+                updateSwiperPosition();
+                updateSwiperDots();
+            }
+        }
+
+        function updateSwiperPosition() {
+            const swiperContainer = document.getElementById('swiperContainer');
+            const slideWidth = swiperContainer.children[0].offsetWidth + 20;
+            const translateX = -currentSlide * slideWidth;
+            swiperContainer.style.transform = `translateX(${translateX}px)`;
+        }
+
+        function updateSwiperDots() {
+            const dots = document.querySelectorAll('.swiper-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function updatePricing(billing) {
+            const data = WEBSITE_CONTENT.pricingData[billing];
+            
+            // Update desktop pricing
+            document.getElementById('media-price').textContent = data.media.price;
+            document.getElementById('media-billing').textContent = data.media.billing;
+            const mediaSavings = document.getElementById('media-savings');
+            if (data.media.savings) {
+                mediaSavings.textContent = data.media.savings;
+                mediaSavings.style.display = 'inline-block';
+            } else {
+                mediaSavings.style.display = 'none';
+            }
+            
+            document.getElementById('allaccess-original').textContent = data.allaccess.original;
+            document.getElementById('allaccess-price').textContent = data.allaccess.price;
+            document.getElementById('allaccess-billing').textContent = data.allaccess.billing;
+            document.getElementById('allaccess-savings').textContent = data.allaccess.savings;
+            
+            document.getElementById('support-original').textContent = data.support.original;
+            document.getElementById('support-price').textContent = data.support.price;
+            document.getElementById('support-billing').textContent = data.support.billing;
+            document.getElementById('support-savings').textContent = data.support.savings;
+
+            // Update mobile pricing
+            document.querySelector('.mobile-media-price').textContent = data.media.price;
+            document.querySelector('.mobile-media-billing').textContent = data.media.billing;
+            const mobileMedaiSavings = document.querySelector('.mobile-media-savings');
+            if (data.media.savings) {
+                mobileMedaiSavings.textContent = data.media.savings;
+                mobileMedaiSavings.style.display = 'inline-block';
+            } else {
+                mobileMedaiSavings.style.display = 'none';
+            }
+            
+            document.querySelector('.mobile-allaccess-original').textContent = data.allaccess.original;
+            document.querySelector('.mobile-allaccess-price').textContent = data.allaccess.price;
+            document.querySelector('.mobile-allaccess-billing').textContent = data.allaccess.billing;
+            document.querySelector('.mobile-allaccess-savings').textContent = data.allaccess.savings;
+            
+            document.querySelector('.mobile-support-original').textContent = data.support.original;
+            document.querySelector('.mobile-support-price').textContent = data.support.price;
+            document.querySelector('.mobile-support-billing').textContent = data.support.billing;
+            document.querySelector('.mobile-support-savings').textContent = data.support.savings;
+        }
+
+        function updateCTAs(billing) {
+            const ctaPrice = WEBSITE_CONTENT.ctaPrices[billing];
+            
+            const heroCTA = document.getElementById('hero-cta');
+            heroCTA.textContent = `${WEBSITE_CONTENT.hero.buttonText} - ${ctaPrice}`;
+            
+            const finalCTA = document.getElementById('final-cta-btn');
+            finalCTA.textContent = `${WEBSITE_CONTENT.finalCTA.buttonText} - ${ctaPrice}`;
+        }
+
+        // Handle window resize to update swiper position
+        window.addEventListener('resize', updateSwiperPosition);
+    </script>
+</body>
+</html>

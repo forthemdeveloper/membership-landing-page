@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finally, Print Media is Back - Support Queer Media</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Modern Color Palette */
+            --primary-50: #fefce8;
+            --primary-100: #fef9c3;
+            --primary-200: #fef08a;
+            --primary-300: #fde047;
+            --primary-400: #facc15;
+            --primary-500: #eab308;
+            --primary-600: #ca8a04;
+            --primary-700: #a16207;
+            --primary-800: #854d0e;
+            --primary-900: #713f12;
+            
+            --secondary-50: #fef2f2;
+            --secondary-100: #fee2e2;
+            --secondary-200: #fecaca;
+            --secondary-300: #fca5a5;
+            --secondary-400: #f87171;
+            --secondary-500: #ef4444;
+            --secondary-600: #dc2626;
+            --secondary-700: #b91c1c;
+            --secondary-800: #991b1b;
+            --secondary-900: #7f1d1d;
+            
+            --neutral-50: #fafafa;
+            --neutral-100: #f5f5f5;
+            --neutral-200: #e5e5e5;
+            --neutral-300: #d4d4d4;
+            --neutral-400: #a3a3a3;
+            --neutral-500: #737373;
+            --neutral-600: #525252;
+            --neutral-700: #404040;
+            --neutral-800: #262626;
+            --neutral-900: #171717;
+            
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-display: 'Playfair Display', Georgia, serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-2xl: 2rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--neutral-800);
+            background-color: var(--neutral-50);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-500) 0%, var(--secondary-500) 100%);
+            padding: var(--space-3xl) 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            line-height: 1.1;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(45deg, #fff, var(--primary-200));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            margin-bottom: var(--space-xl);
+            opacity: 0.95;
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            background: var(--neutral-900);
+            color: white;
+            padding: var(--space-md) var(--space-xl);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--radius-2xl);
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-xl);
+            margin-bottom: var(--space-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .hero-cta:hover::before {
+            left: 100%;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-2xl);
+            background: var(--neutral-800);
+        }
+
+        .hero-stats {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Magazine Showcase */
+        .magazine-showcase {
+            padding: var(--space-3xl) 0;
+            background: white;
+        }
+
+        .magazine-placeholder {
+            background: linear-gradient(135deg, var(--neutral-100), var(--neutral-200));
+            padding: var(--space-3xl);
+            border-radius: var(--radius-2xl);
+            margin: var(--space-xl) 0;
+            border: 2px dashed var(--neutral-300);
+            text-align: center;
+        }
+
+        .magazine-placeholder p {
+            font-size: 1.1rem;
+            color: var(--neutral-600);
+            font-style: italic;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: var(--space-3xl) 0;
+            background: var(--neutral-50);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .pricing-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--neutral-900);
+        }
+
+        /* Toggle Controls */
+        .toggle-controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .toggle-group {
+            display: flex;
+            background: white;
+            border-radius: var(--radius-2xl);
+            padding: var(--space-xs);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--neutral-200);
+        }
+
+        .toggle-btn {
+            padding: var(--space-sm) var(--space-lg);
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-xl);
+            font-family: var(--font-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--neutral-600);
+            position: relative;
+        }
+
+        .toggle-btn.active {
+            background: var(--primary-500);
+            color: white;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .toggle-btn:hover:not(.active) {
+            color: var(--neutral-800);
+            background: var(--neutral-100);
+        }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: var(--space-xl);
+            align-items: start;
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            background: white;
+            border: 2px solid var(--neutral-200);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-xl);
+            text-align: center;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-300);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid var(--primary-500);
+            background: linear-gradient(135deg, var(--primary-50), white);
+            transform: scale(1.05);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .pricing-card.featured::before {
+            content: attr(data-badge);
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary-500);
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-xl);
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: var(--shadow-md);
+        }
+
+        .pricing-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--neutral-900);
+        }
+
+        .pricing-card .original-price {
+            font-size: 1.1rem;
+            text-decoration: line-through;
+            color: var(--neutral-400);
+            margin-bottom: var(--space-xs);
+        }
+
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: var(--space-sm);
+            color: var(--neutral-900);
+            line-height: 1;
+        }
+
+        .pricing-card .billing-period {
+            font-size: 1rem;
+            margin-bottom: var(--space-lg);
+            color: var(--neutral-600);
+            font-weight: 500;
+        }
+
+        .pricing-card .savings {
+            background: var(--secondary-500);
+            color: white;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-lg);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: var(--space-xl);
+            display: inline-block;
+        }
+
+        .pricing-card.featured .savings {
+            background: var(--neutral-900);
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: var(--space-xl);
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            padding: var(--space-sm) 0;
+            font-size: 1rem;
+            position: relative;
+            padding-left: var(--space-lg);
+            color: var(--neutral-700);
+            font-weight: 500;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .pricing-card.featured .features-list li:before {
+            color: var(--secondary-500);
+        }
+
+        .pricing-btn {
+            display: block;
+            width: 100%;
+            padding: var(--space-md);
+            background: var(--neutral-900);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .pricing-btn:hover::before {
+            left: 100%;
+        }
+
+        .pricing-btn:hover {
+            background: var(--neutral-800);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.featured .pricing-btn {
+            background: var(--neutral-900);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: var(--space-3xl) 0;
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .testimonial {
+            background: var(--neutral-50);
+            padding: var(--space-xl);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            border: 1px solid var(--neutral-200);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonial:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-300);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+            color: var(--neutral-700);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--neutral-600);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary-500) 0%, var(--accent-blue) 100%);
+            color: white;
+            padding: var(--space-3xl) 0;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+        }
+
+        .final-cta .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-lg);
+            opacity: 0.9;
+        }
+
+        .final-cta .guarantee {
+            font-size: 1rem;
+            margin-bottom: var(--space-xl);
+            opacity: 0.9;
+        }
+
+        .final-cta-btn {
+            background: white;
+            color: var(--neutral-900);
+            padding: var(--space-lg) var(--space-2xl);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--radius-2xl);
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .final-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-2xl);
+            background: var(--neutral-100);
+        }
+
+        .final-cta .terms {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--space-md);
+            }
+            
+            .hero {
+                padding: var(--space-2xl) 0;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+                order: -1;
+            }
+
+            .toggle-controls {
+                margin-bottom: var(--space-2xl);
+            }
+
+            .toggle-group {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .fade-in-delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .fade-in-delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .fade-in-delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Loading States */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        /* Focus States for Accessibility */
+        .toggle-btn:focus,
+        .pricing-btn:focus,
+        .hero-cta:focus,
+        .final-cta-btn:focus {
+            outline: 2px solid var(--primary-500);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 id="hero-headline" class="fade-in">Finally, <span class="highlight">Print Media is Back</span></h1>
+                <p class="subtitle fade-in fade-in-delay-1" id="hero-subtitle">Get a stunning print magazine delivered quarterly + 30% off everything</p>
+                <a href="#" class="hero-cta fade-in fade-in-delay-2" id="hero-cta">Get My First Magazine</a>
+                <p class="hero-stats fade-in fade-in-delay-3" id="hero-stats">12,000+ members • Cancel anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Magazine Showcase -->
+    <section class="magazine-showcase">
+        <div class="container">
+            <div class="magazine-placeholder">
+                <p>📍 Beautiful magazine image would go here - showing the magazine open on a coffee table with plants and coffee, similar to Loveable's aesthetic</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-header">
+                <h2 id="pricing-title" class="fade-in">Here's What Lands in Your Mailbox</h2>
+            </div>
+
+            <!-- Toggle Controls -->
+            <div class="toggle-controls">
+                <div class="toggle-group">
+                    <button class="toggle-btn billing-toggle" data-billing="monthly">Monthly</button>
+                    <button class="toggle-btn billing-toggle active" data-billing="quarterly">Quarterly</button>
+                    <button class="toggle-btn billing-toggle" data-billing="annually">Annually</button>
+                </div>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div class="pricing-grid">
+                <!-- Media -->
+                <div class="pricing-card fade-in">
+                    <h3 id="media-name">Media</h3>
+                    <div class="price" id="media-price">$24</div>
+                    <div class="billing-period" id="media-billing">per quarter</div>
+                    <div class="savings" id="media-savings" style="display: none;"></div>
+                    <ul class="features-list" id="media-features">
+                        <li>Exclusive Content</li>
+                        <li>Newsletters</li>
+                        <li>Read Ad-Free</li>
+                    </ul>
+                    <a href="#" class="pricing-btn" id="media-btn">Get My First Magazine</a>
+                </div>
+
+                <!-- All Access (Featured) -->
+                <div class="pricing-card featured fade-in fade-in-delay-1" id="allaccess-card" data-badge="MOST POPULAR CHOICE">
+                    <h3 id="allaccess-name">All Access</h3>
+                    <div class="original-price" id="allaccess-original">$48</div>
+                    <div class="price" id="allaccess-price">$39</div>
+                    <div class="billing-period" id="allaccess-billing">per quarter</div>
+                    <div class="savings" id="allaccess-savings">FREE ZINE + SAVE 19%</div>
+                    <ul class="features-list" id="allaccess-features">
+                        <li>Everything in Media</li>
+                        <li>30% Off Products</li>
+                        <li>Perks from Our Partners</li>
+                        <li>FREE Seasonal Print Magazine</li>
+                    </ul>
+                    <a href="#" class="pricing-btn" id="allaccess-btn">Get My First Magazine</a>
+                </div>
+
+                <!-- Support -->
+                <div class="pricing-card fade-in fade-in-delay-2">
+                    <h3 id="support-name">Support</h3>
+                    <div class="original-price" id="support-original">$150</div>
+                    <div class="price" id="support-price">$135</div>
+                    <div class="billing-period" id="support-billing">per quarter</div>
+                    <div class="savings" id="support-savings">FREE ZINE + SAVE 10%</div>
+                    <ul class="features-list" id="support-features">
+                        <li>Everything in All Access</li>
+                        <li>Sponsor Gender Affirming Product Donations</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <a href="#" class="pricing-btn" id="support-btn">Get My First Magazine</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonial-grid" id="testimonial-grid">
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">"Finally found my people - and they come with a beautiful magazine"</p>
+                    <p class="testimonial-author">Jamie, Portland</p>
+                </div>
+                <div class="testimonial fade-in fade-in-delay-1">
+                    <p class="testimonial-text">"The magazine alone is worth $24, everything else is bonus"</p>
+                    <p class="testimonial-author">Alex, Chicago</p>
+                </div>
+                <div class="testimonial fade-in fade-in-delay-2">
+                    <p class="testimonial-text">"Finally, print media that represents our stories"</p>
+                    <p class="testimonial-author">Sam, Austin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 id="final-cta-headline" class="fade-in">Support Queer Print Media</h2>
+            <p class="subtitle fade-in fade-in-delay-1" id="final-cta-subtitle">Join the movement • Get your magazine • Build your collection</p>
+            <p class="guarantee fade-in fade-in-delay-2" id="final-cta-guarantee">Love your first magazine or get your money back - keep it either way</p>
+            <a href="#" class="final-cta-btn fade-in fade-in-delay-3" id="final-cta-btn">Get My First Magazine</a>
+            <p class="terms fade-in fade-in-delay-3" id="final-cta-terms">Billed quarterly • Cancel anytime • Keep your magazine</p>
+        </div>
+    </section>
+
+    <!-- Load the content from the separate file -->
+    <script src="content.js"></script>
+    <script src="rateLimiter.js"></script>
+
+    <script>
+        // Pricing data for different billing periods
+        const pricingData = {
+            monthly: {
+                media: { price: '$8', billing: 'per month', savings: false },
+                allaccess: { original: '$16', price: '$13', billing: 'per month', savings: 'SAVE 19%' },
+                support: { original: '$50', price: '$45', billing: 'per month', savings: 'SAVE 10%' }
+            },
+            quarterly: {
+                media: { price: '$24', billing: 'per quarter', savings: false },
+                allaccess: { original: '$48', price: '$39', billing: 'per quarter', savings: 'FREE ZINE + SAVE 19%' },
+                support: { original: '$150', price: '$135', billing: 'per quarter', savings: 'FREE ZINE + SAVE 10%' }
+            },
+            annually: {
+                media: { price: '$60', billing: 'per year', savings: 'SAVE 38%' },
+                allaccess: { original: '$192', price: '$117', billing: 'per year', savings: 'FREE ZINE + SAVE 39%' },
+                support: { original: '$600', price: '$405', billing: 'per year', savings: 'FREE ZINE + SAVE 33%' }
+            }
+        };
+
+        // Toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load all content from the content.js file
+            loadContent();
+
+            // Billing toggle functionality
+            const billingToggles = document.querySelectorAll('.billing-toggle');
+            
+            billingToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    // Add loading state
+                    document.querySelector('.pricing-grid').classList.add('loading');
+                    
+                    // Remove active class from all toggles
+                    billingToggles.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked toggle
+                    this.classList.add('active');
+                    
+                    // Get selected billing period
+                    const selectedBilling = this.dataset.billing;
+                    
+                    // Update pricing with animation
+                    setTimeout(() => {
+                        updatePricing(selectedBilling);
+                        updateCTAs(selectedBilling);
+                        document.querySelector('.pricing-grid').classList.remove('loading');
+                    }, 200);
+                });
+            });
+        });
+
+        function loadContent() {
+            const content = WEBSITE_CONTENT;
+            
+            // Hero section
+            document.getElementById('hero-headline').innerHTML = 'Finally, <span class="highlight">' + content.hero.headline.replace('Finally, ', '').replace('Print Media is Back', 'Print Media is Back') + '</span>';
+            document.getElementById('hero-subtitle').textContent = content.hero.subtitle;
+            document.getElementById('hero-stats').textContent = content.hero.stats;
+            
+            // Pricing section
+            document.getElementById('pricing-title').textContent = content.pricing.sectionTitle;
+            
+            // Media tier
+            document.getElementById('media-name').textContent = content.pricing.media.name;
+            document.getElementById('media-btn').textContent = content.pricing.media.buttonText;
+            
+            // All Access tier
+            document.getElementById('allaccess-name').textContent = content.pricing.allAccess.name;
+            document.getElementById('allaccess-card').setAttribute('data-badge', content.pricing.allAccess.badge);
+            document.getElementById('allaccess-btn').textContent = content.pricing.allAccess.buttonText;
+            
+            // Support tier
+            document.getElementById('support-name').textContent = content.pricing.support.name;
+            document.getElementById('support-btn').textContent = content.pricing.support.buttonText;
+            
+            // Features lists
+            loadFeatures('media-features', content.pricing.media.features);
+            loadFeatures('allaccess-features', content.pricing.allAccess.features);
+            loadFeatures('support-features', content.pricing.support.features);
+            
+            // Final CTA
+            document.getElementById('final-cta-headline').textContent = content.finalCTA.headline;
+            document.getElementById('final-cta-subtitle').textContent = content.finalCTA.subtitle;
+            document.getElementById('final-cta-guarantee').textContent = content.finalCTA.guarantee;
+            document.getElementById('final-cta-terms').textContent = content.finalCTA.terms;
+            
+            // Set initial pricing and CTAs
+            updatePricing('quarterly');
+            updateCTAs('quarterly');
+        }
+
+        function loadFeatures(elementId, features) {
+            const featuresList = document.getElementById(elementId);
+            featuresList.innerHTML = '';
+            features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+        }
+
+        function updatePricing(billing) {
+            const data = pricingData[billing];
+            
+            // Update Media pricing
+            document.getElementById('media-price').textContent = data.media.price;
+            document.getElementById('media-billing').textContent = data.media.billing;
+            const mediaSavings = document.getElementById('media-savings');
+            if (data.media.savings) {
+                mediaSavings.textContent = data.media.savings;
+                mediaSavings.style.display = 'inline-block';
+            } else {
+                mediaSavings.style.display = 'none';
+            }
+            
+            // Update All Access pricing
+            document.getElementById('allaccess-original').textContent = data.allaccess.original;
+            document.getElementById('allaccess-price').textContent = data.allaccess.price;
+            document.getElementById('allaccess-billing').textContent = data.allaccess.billing;
+            document.getElementById('allaccess-savings').textContent = data.allaccess.savings;
+            
+            // Update Support pricing
+            document.getElementById('support-original').textContent = data.support.original;
+            document.getElementById('support-price').textContent = data.support.price;
+            document.getElementById('support-billing').textContent = data.support.billing;
+            document.getElementById('support-savings').textContent = data.support.savings;
+        }
+
+        function updateCTAs(billing) {
+            const ctaPrice = WEBSITE_CONTENT.ctaPrices[billing];
+            
+            const heroCTA = document.getElementById('hero-cta');
+            heroCTA.textContent = `${WEBSITE_CONTENT.hero.buttonText} - ${ctaPrice}`;
+            
+            const finalCTA = document.getElementById('final-cta-btn');
+            finalCTA.textContent = `${WEBSITE_CONTENT.finalCTA.buttonText} - ${ctaPrice}`;
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

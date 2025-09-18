@@ -1,0 +1,73 @@
+LANDING PAGE COPY - V2 MEMBERSHIP PAGE
+===========================================
+
+PAGE TITLE:
+Finally, Print Media is Back - Free with membership
+
+HERO SECTION:
+Main Headline: Finally, Print Media is Back
+Subtitle: Get our queer print magazine every season + 30% off everything
+CTA Button: Become a Member
+Stats Line: 8,000+ members • Cancel anytime
+
+PRICING SECTION:
+Section Header: Here's What You Get
+
+BILLING TOGGLES:
+- Monthly
+- Quarterly (default)
+- Annually
+
+TIER 1 - MEDIA:
+Title: Media
+Features:
+- Exclusive Content
+- Newsletters  
+- Read Ad-Free
+CTA Button: Continue
+
+TIER 2 - ALL ACCESS (FEATURED):
+Badge: MOST POPULAR
+Title: All Access
+Features:
+- Everything in Media
+- 30% Off Products
+- Perks from Our Partners
+- FREE Seasonal Print Magazine
+CTA Button: Get My First Magazine
+
+TIER 3 - SUPPORT:
+Title: Support
+Features:
+- Everything in All Access
+- Sponsor Gender Affirming Product Donations
+- Priority Support
+CTA Button: Continue
+
+TESTIMONIALS SECTION:
+Testimonial 1: "Finally found my people - and they come with a beautiful magazine" - Jamie, Portland
+Testimonial 2: "The magazine alone is worth $24, everything else is bonus" - Alex, Chicago
+Testimonial 3: "Finally, print media that represents our stories" - Sam, Austin
+
+FINAL CTA SECTION:
+Main Headline: Support Queer Print Media
+Subtitle: Join the movement • Get your magazine • Build your collection
+Guarantee: Love your first magazine or get your money back - keep it either way
+CTA Button: Get My First Magazine
+Terms: Billed quarterly • Cancel anytime • Keep your magazine
+
+PRICING DATA (from JavaScript):
+Monthly Pricing:
+- Media: $4/month
+- All Access: $15
+- Support: $50
+
+Quarterly Pricing (default):
+- Media: $12/quarter
+- All Access: $45 -> $24/quarter (FREE ZINE + SAVE 47%)
+- Support: $150 -> $135/quarter (FREE ZINE + SAVE 10%)
+
+Annual Pricing:
+- Media: $48/year
+- All Access: $180 -> $48/year (FREE ZINE + SAVE 73%)
+- Support: $600 -> $500/year (FREE ZINE + SAVE 17%)
