@@ -25,6 +25,23 @@
             padding: 0 20px;
         }
 
+        /* Header */
+        .header {
+            background: #BABA00;
+            padding: 5px 0;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .header img {
+            height: 15px;
+            width: auto;
+        }
+
         /* Hero Section */
         .hero {
             padding: 40px 0 30px;
@@ -46,7 +63,7 @@
         }
 
         .hero h1 .highlight {
-            color: #BABA00;
+            color: #000000;
         }
 
         .hero .subtitle {
@@ -81,8 +98,8 @@
 
         .hero-stats {
             color: #666;
-            font-size: 1rem;
-            margin-top: 20px;
+            font-size: 0.85rem;
+            margin-top: 8px;
         }
 
         /* Magazine Image */
@@ -121,7 +138,7 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
 
         .toggle-group {
@@ -131,7 +148,7 @@
             padding: 2px;
         }
 
-        .toggle-btn {
+        .cadence-tab {
             padding: 8px 16px;
             background: transparent;
             border: none;
@@ -144,7 +161,8 @@
             color: #666;
         }
 
-        .toggle-btn.active {
+        .cadence-tab[aria-selected="true"],
+        .cadence-tab.is-active {
             background: #BABA00;
             color: #000000;
             box-shadow: 0 2px 8px rgba(186, 186, 0, 0.3);
@@ -156,6 +174,19 @@
             grid-template-columns: 1fr 1.5fr 1fr;
             gap: 30px;
             align-items: start;
+            overflow: visible;
+        }
+        
+        /* If any ancestor wraps cards, do NOT clip children */
+        .pricing-cards-wrap {
+            overflow: visible;
+        }
+        
+        /* Fix common mobile/Safari clipping from transformed parents */
+        .pricing-cards-wrap,
+        .pricing-card {
+            isolation: isolate;       /* new stacking context w/o clipping */
+            will-change: auto;
         }
 
         .pricing-card {
@@ -165,6 +196,7 @@
             padding: 20px 15px;
             text-align: center;
             position: relative;
+            overflow: visible;
             transition: all 0.3s ease;
         }
 
@@ -172,26 +204,27 @@
             border: 4px solid #BABA00;
             background: #BABA00;
             color: #000000;
-            transform: scale(1.05);
             box-shadow: 0 20px 60px rgba(186, 186, 0, 0.3);
         }
 
-        .pricing-card.featured::before {
-            content: "MOST POPULAR";
+        /* The badge itself */
+        .mp-badge {
             position: absolute;
-            top: -8px;
+            top: -14px;               /* pull it above the card curve */
             left: 50%;
             transform: translateX(-50%);
-            background: #DE0100;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            z-index: 10;
-            white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(222, 1, 0, 0.3);
-            border: 2px solid #fff;
+            z-index: 9999;            /* escape stacking issues */
+            padding: 6px 12px;
+            border-radius: 18px;
+            background: #ff2a2a;      /* your red pill */
+            color: #fff;
+            font-weight: 800;
+            font-size: 12px;
+            line-height: 1;
+            letter-spacing: .06em;
+            box-shadow: 0 6px 14px rgba(0,0,0,.18);
+            pointer-events: none;
+            text-transform: uppercase;
         }
 
         .pricing-card h3 {
@@ -203,8 +236,12 @@
         .pricing-card .original-price {
             font-size: 1.2rem;
             text-decoration: line-through;
-            color: #999;
+            color: #666;
             margin-bottom: 5px;
+        }
+
+        .pricing-card.featured .original-price {
+            color: #333;
         }
 
         .pricing-card .price {
@@ -220,19 +257,21 @@
         }
 
         .pricing-card .savings {
-            background: #DE0100;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 0.9rem;
+            background: transparent;
+            color: #DE0100;
+            padding: 4px 8px;
+            border: 2px solid #DE0100;
+            border-radius: 8px;
+            font-size: 0.8rem;
             font-weight: 700;
             margin-bottom: 30px;
             display: inline-block;
         }
 
         .pricing-card.featured .savings {
-            background: #000000;
-            color: white;
+            background: transparent;
+            color: #000000;
+            border-color: #000000;
         }
 
         .features-list {
@@ -373,7 +412,7 @@
 
         /* Final CTA */
         .final-cta {
-            background: linear-gradient(135deg, #BABA00 0%, #0069E4 100%);
+            background: #0069E4;
             color: white;
             padding: 40px 0;
             text-align: center;
@@ -392,14 +431,14 @@
         }
 
         .final-cta .guarantee {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             margin-bottom: 25px;
             opacity: 0.9;
         }
 
         .final-cta-btn {
             background: white;
-            color: #000000;
+            color: #0069E4;
             padding: 15px 30px;
             font-size: 1rem;
             font-weight: 700;
@@ -416,9 +455,10 @@
         }
 
         .final-cta .terms {
-            margin-top: 20px;
-            font-size: 1rem;
+            margin-top: 10px;
+            font-size: 0.7rem;
             opacity: 0.8;
+            font-style: italic;
         }
 
         /* Responsive */
@@ -430,17 +470,22 @@
             .pricing-grid {
                 display: flex;
                 overflow-x: auto;
+                overflow-y: visible;
                 scroll-snap-type: x mandatory;
                 gap: 15px;
-                padding: 0 30px;
+                padding: 20px 20px 0;
                 margin: 0 -20px;
-                scroll-padding: 0 30px;
+                scroll-padding: 0 50px;
             }
             
             .pricing-card {
                 flex: 0 0 260px;
                 scroll-snap-align: center;
                 padding: 15px 12px;
+            }
+            
+            .pricing-card.featured {
+                scroll-snap-align: center;
             }
             
             .pricing-card:first-child {
@@ -458,7 +503,6 @@
             }
             
             .pricing-card.featured {
-                transform: none;
                 order: 0;
             }
 
@@ -466,30 +510,42 @@
                 margin-bottom: 20px;
             }
             
-            .toggle-btn {
+            .cadence-tab {
                 padding: 6px 12px;
                 font-size: 0.75rem;
             }
         }
 
-        /* Hide/show pricing tiers based on selection */
-        .tier-content {
+        /* Hide/show pricing cards based on cadence selection */
+        .pricing-card {
             display: none;
         }
-
-        .tier-content.active {
+        
+        .pricing-card.is-visible {
             display: block;
+        }
+        
+        .pricing-card.is-highlighted {
+            outline: 2px solid #BABA00;
+            outline-offset: 4px;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <img src="FT x AS Black.png" alt="FT x AS Logo">
+        </div>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h1>Finally, <span class="highlight">Print Media is Back</span></h1>
             <p class="tagline">free with membership</p>
             <p class="subtitle">Get our gorgeous print magazine in the mail every season + 30% off everything</p>
-            <a href="#" class="hero-cta">Become a Member</a>
+            <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1580236966%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="hero-cta">Become a Member</a>
             <p class="hero-stats">8,000+ members • Cancel anytime</p>
         </div>
     </section>
@@ -511,17 +567,15 @@
             <!-- Toggle Controls -->
             <div class="toggle-controls">
                 <div class="toggle-group">
-                    <button class="toggle-btn billing-toggle" data-billing="monthly">Monthly</button>
-                    <button class="toggle-btn billing-toggle active" data-billing="quarterly">Quarterly</button>
-                    <button class="toggle-btn billing-toggle" data-billing="annually">Annually</button>
+                    <button class="cadence-tab" data-cadence-tab="monthly" aria-selected="false">Monthly</button>
+                    <button class="cadence-tab" data-cadence-tab="quarterly" aria-selected="true">Quarterly</button>
+                    <button class="cadence-tab" data-cadence-tab="annually" aria-selected="false">Annually</button>
                 </div>
             </div>
 
-            <!-- Media Tier Content -->
-            <div id="media-tier" class="tier-content active">
-                <div class="pricing-grid">
+            <div class="pricing-grid">
                     <!-- Media -->
-                    <div class="pricing-card">
+                    <div class="pricing-card" data-cadence="quarterly" data-plan="media">
                         <h3>Media</h3>
                         <div class="price" id="media-price">$12</div>
                         <div class="billing-period" id="media-billing">per quarter</div>
@@ -531,11 +585,12 @@
                             <li>Newsletters</li>
                             <li>Read Ad-Free</li>
                         </ul>
-                        <a href="#" class="pricing-btn">Continue</a>
+                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925585574%26items%5B0%5D%5Bselling_plan%5D%3D1580204198%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn">Continue</a>
                     </div>
 
                     <!-- All Access (Featured) -->
-                    <div class="pricing-card featured">
+                    <div class="pricing-card featured" data-cadence="quarterly" data-plan="all-access">
+                        <div class="mp-badge" aria-hidden="true">MOST POPULAR</div>
                         <h3>All Access</h3>
                         <div class="original-price" id="allaccess-original">$45</div>
                         <div class="price" id="allaccess-price">$24</div>
@@ -547,11 +602,11 @@
                             <li>Perks from Our Partners</li>
                             <li>FREE Seasonal Print Magazine</li>
                         </ul>
-                        <a href="#" class="pricing-btn">Get My First Magazine</a>
+                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1580236966%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn">Get My First Magazine</a>
                     </div>
 
                     <!-- Support -->
-                    <div class="pricing-card">
+                    <div class="pricing-card" data-cadence="quarterly" data-plan="support">
                         <h3>Support</h3>
                         <div class="original-price" id="support-original">$150</div>
                         <div class="price" id="support-price">$135</div>
@@ -562,9 +617,89 @@
                             <li>Sponsor Gender Affirming Product Donations</li>
                             <li>Priority Support</li>
                         </ul>
-                        <a href="#" class="pricing-btn">Continue</a>
+                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D46214081347750%26items%5B0%5D%5Bselling_plan%5D%3D2080374950%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn">Continue</a>
                     </div>
-                </div>
+                    
+                    <!-- Monthly Cards -->
+                    <div class="pricing-card" data-cadence="monthly" data-plan="media">
+                        <h3>Media</h3>
+                        <div class="price">$4</div>
+                        <div class="billing-period">per month</div>
+                        <ul class="features-list">
+                            <li>Exclusive Content</li>
+                            <li>Newsletters</li>
+                            <li>Read Ad-Free</li>
+                        </ul>
+                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925585574%26items%5B0%5D%5Bselling_plan%5D%3D1575026854%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn">Continue</a>
+                    </div>
+
+                    <div class="pricing-card featured" data-cadence="monthly" data-plan="all-access">
+                        <div class="mp-badge" aria-hidden="true">MOST POPULAR</div>
+                        <h3>All Access</h3>
+                        <div class="price">$15</div>
+                        <div class="billing-period">per month</div>
+                        <ul class="features-list">
+                            <li>Everything in Media</li>
+                            <li>30% Off Products</li>
+                            <li>Perks from Our Partners</li>
+                        </ul>
+                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1574961318%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn">Continue</a>
+                    </div>
+
+                    <div class="pricing-card" data-cadence="monthly" data-plan="support">
+                        <h3>Support</h3>
+                        <div class="price">$50</div>
+                        <div class="billing-period">per month</div>
+                        <ul class="features-list">
+                            <li>Everything in All Access</li>
+                            <li>Sponsor Gender Affirming Product Donations</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D46214081347750%26items%5B0%5D%5Bselling_plan%5D%3D2021261478%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn">Continue</a>
+                    </div>
+                    
+                    <!-- Annual Cards -->
+                    <div class="pricing-card" data-cadence="annually" data-plan="media">
+                        <h3>Media</h3>
+                        <div class="price">$48</div>
+                        <div class="billing-period">per year</div>
+                        <ul class="features-list">
+                            <li>Exclusive Content</li>
+                            <li>Newsletters</li>
+                            <li>Read Ad-Free</li>
+                        </ul>
+                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925585574%26items%5B0%5D%5Bselling_plan%5D%3D1575059622%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn">Continue</a>
+                    </div>
+
+                    <div class="pricing-card featured" data-cadence="annually" data-plan="all-access">
+                        <div class="mp-badge" aria-hidden="true">MOST POPULAR</div>
+                        <h3>All Access</h3>
+                        <div class="original-price">$180</div>
+                        <div class="price">$48</div>
+                        <div class="billing-period">per year</div>
+                        <div class="savings">FREE ZINE + SAVE 73%</div>
+                        <ul class="features-list">
+                            <li>Everything in Media</li>
+                            <li>30% Off Products</li>
+                            <li>Perks from Our Partners</li>
+                            <li>FREE Seasonal Print Magazine</li>
+                        </ul>
+                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1574994086%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn">Get My First Magazine</a>
+                    </div>
+
+                    <div class="pricing-card" data-cadence="annually" data-plan="support">
+                        <h3>Support</h3>
+                        <div class="original-price">$600</div>
+                        <div class="price">$500</div>
+                        <div class="billing-period">per year</div>
+                        <div class="savings">FREE ZINE + SAVE 17%</div>
+                        <ul class="features-list">
+                            <li>Everything in All Access</li>
+                            <li>Sponsor Gender Affirming Product Donations</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D46214081347750%26items%5B0%5D%5Bselling_plan%5D%3D2021294246%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn">Continue</a>
+                    </div>
             </div>
         </div>
     </section>
@@ -572,7 +707,7 @@
     <!-- Social Proof - TikTok Videos -->
     <section class="social-proof">
         <div class="container">
-            <h2>See Why Everyone's Talking About Us</h2>
+            <h2>See What Everyone's Talking About</h2>
             <p class="subtitle">Join thousands who discovered our magazine on TikTok</p>
             
             <div class="tiktok-grid">
@@ -602,7 +737,7 @@
             </div>
             
             <div class="conversion-bridge">
-                Ready to join the community everyone's raving about? Get your first magazine today!
+                Ready to join the community? Get your first magazine today!
             </div>
         </div>
     </section>
@@ -613,7 +748,7 @@
             <h2>Support Queer Print Media</h2>
             <p class="subtitle">Join the movement • Get your magazine • Build your collection</p>
             <p class="guarantee">Love your first magazine or get your money back - keep it either way</p>
-            <a href="#" class="final-cta-btn">Get My First Magazine</a>
+            <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1580236966%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="final-cta-btn">Get My First Magazine</a>
             <p class="terms">Billed quarterly • Cancel anytime • Keep your magazine</p>
         </div>
     </section>
@@ -621,91 +756,49 @@
     <script src="rateLimiter.js"></script>
     <script async src="https://www.tiktok.com/embed.js"></script>
     <script>
-        // Pricing data for different billing periods
-        const pricingData = {
-            monthly: {
-                media: { price: '$4', billing: 'per month', savings: false },
-                allaccess: { price: '$15', billing: 'per month', savings: false },
-                support: { price: '$50', billing: 'per month', savings: false }
-            },
-            quarterly: {
-                media: { price: '$12', billing: 'per quarter', savings: false },
-                allaccess: { original: '$45', price: '$24', billing: 'per quarter', savings: 'FREE ZINE + SAVE 47%' },
-                support: { original: '$150', price: '$135', billing: 'per quarter', savings: 'FREE ZINE + SAVE 10%' }
-            },
-            annually: {
-                media: { price: '$48', billing: 'per year', savings: false },
-                allaccess: { original: '$180', price: '$48', billing: 'per year', savings: 'FREE ZINE + SAVE 73%' },
-                support: { original: '$600', price: '$500', billing: 'per year', savings: 'FREE ZINE + SAVE 17%' }
-            }
-        };
-
-        // Toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const billingToggles = document.querySelectorAll('.billing-toggle');
-            
-            billingToggles.forEach(toggle => {
-                toggle.addEventListener('click', function() {
-                    // Remove active class from all toggles
-                    billingToggles.forEach(t => t.classList.remove('active'));
-                    
-                    // Add active class to clicked toggle
-                    this.classList.add('active');
-                    
-                    // Get selected billing period
-                    const selectedBilling = this.dataset.billing;
-                    
-                    // Update pricing
-                    updatePricing(selectedBilling);
-                    
-                    // Update CTAs
-                    updateCTAs(selectedBilling);
-                });
+        function setActiveCadence(cadence) {
+            // Tabs
+            document.querySelectorAll('.cadence-tab').forEach(btn => {
+                const isActive = btn.dataset.cadenceTab === cadence;
+                btn.setAttribute('aria-selected', String(isActive));
+                btn.classList.toggle('is-active', isActive);
             });
+
+            // Cards
+            document.querySelectorAll('.pricing-card').forEach(card => {
+                const isMatch = card.dataset.cadence === cadence;
+                card.classList.toggle('is-visible', isMatch);
+                card.setAttribute('aria-hidden', String(!isMatch));
+            });
+        }
+
+        function focusQuarterlyAllAccess() {
+            const target = document.querySelector('.pricing-card[data-cadence="quarterly"][data-plan="all-access"]');
+            if (!target) return;
+            target.classList.add('is-highlighted'); // add glow/outline if desired
+            // Ensure it's in view on mobile carousels/grids:
+            target.scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'center' });
+        }
+
+        // URL override ?cadence=monthly etc., otherwise default to quarterly
+        function getInitialCadence() {
+            const p = new URLSearchParams(location.search);
+            return p.get('cadence') || 'quarterly';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const initial = getInitialCadence();
+            setActiveCadence(initial);
+            // Only snap to All-Access when quarterly is chosen (your default)
+            if (initial === 'quarterly') focusQuarterlyAllAccess();
         });
 
-        function updatePricing(billing) {
-            const data = pricingData[billing];
-            
-            // Update Media pricing
-            document.getElementById('media-price').textContent = data.media.price;
-            document.getElementById('media-billing').textContent = data.media.billing;
-            const mediaSavings = document.getElementById('media-savings');
-            if (data.media.savings) {
-                mediaSavings.textContent = data.media.savings;
-                mediaSavings.style.display = 'inline-block';
-            } else {
-                mediaSavings.style.display = 'none';
-            }
-            
-            // Update All Access pricing
-            document.getElementById('allaccess-original').textContent = data.allaccess.original;
-            document.getElementById('allaccess-price').textContent = data.allaccess.price;
-            document.getElementById('allaccess-billing').textContent = data.allaccess.billing;
-            document.getElementById('allaccess-savings').textContent = data.allaccess.savings;
-            
-            // Update Support pricing
-            document.getElementById('support-original').textContent = data.support.original;
-            document.getElementById('support-price').textContent = data.support.price;
-            document.getElementById('support-billing').textContent = data.support.billing;
-            document.getElementById('support-savings').textContent = data.support.savings;
-        }
-
-        function updateCTAs(billing) {
-            const ctaPrices = {
-                monthly: '$15',
-                quarterly: '$24',
-                annually: '$48'
-            };
-            
-            // Update hero CTA
-            const heroCTA = document.querySelector('.hero-cta');
-            heroCTA.textContent = `Become a Member`;
-            
-            // Update final CTA
-            const finalCTA = document.querySelector('.final-cta-btn');
-            finalCTA.textContent = `Get My First Magazine`;
-        }
+        // Also wire tabs to call setActiveCadence on click
+        document.querySelectorAll('.cadence-tab').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setActiveCadence(btn.dataset.cadenceTab);
+            });
+        });
     </script>
 </body>
 </html>
