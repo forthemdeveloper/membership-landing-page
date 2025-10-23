@@ -176,12 +176,12 @@
             align-items: start;
             overflow: visible;
         }
-
+        
         /* If any ancestor wraps cards, do NOT clip children */
         .pricing-cards-wrap {
             overflow: visible;
         }
-
+        
         /* Fix common mobile/Safari clipping from transformed parents */
         .pricing-cards-wrap,
         .pricing-card {
@@ -365,7 +365,7 @@
                 padding: 0 20px;
                 margin: 0 -20px 40px -20px;
             }
-
+            
             .tiktok-video {
                 flex: 0 0 280px;
                 scroll-snap-align: start;
@@ -466,7 +466,7 @@
             .hero h1 {
                 font-size: 2rem;
             }
-
+            
             .pricing-grid {
                 display: flex;
                 overflow-x: auto;
@@ -477,31 +477,31 @@
                 margin: 0 -20px;
                 scroll-padding: 0 50px;
             }
-
+            
             .pricing-card {
                 flex: 0 0 260px;
                 scroll-snap-align: center;
                 padding: 15px 12px;
             }
-
+            
             .pricing-card.featured {
                 scroll-snap-align: center;
             }
-
+            
             .pricing-card:first-child {
                 margin-left: 20px;
             }
-
+            
             .pricing-card h3 {
                 font-size: 1.1rem;
                 margin-bottom: 8px;
             }
-
+            
             .pricing-card .price {
                 font-size: 1.5rem;
                 margin-bottom: 6px;
             }
-
+            
             .pricing-card.featured {
                 order: 0;
             }
@@ -509,7 +509,7 @@
             .toggle-controls {
                 margin-bottom: 20px;
             }
-
+            
             .cadence-tab {
                 padding: 6px 12px;
                 font-size: 0.75rem;
@@ -520,11 +520,11 @@
         .pricing-card {
             display: none;
         }
-
+        
         .pricing-card.is-visible {
             display: block;
         }
-
+        
         .pricing-card.is-highlighted {
             outline: 2px solid #BABA00;
             outline-offset: 4px;
@@ -545,7 +545,7 @@
             <h1>Finally, <span class="highlight">Print Media is Back</span></h1>
             <p class="tagline">free with membership</p>
             <p class="subtitle">Get our gorgeous print magazine in the mail every season + 30% off everything</p>
-            <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1580236966%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="hero-cta" onclick="if(typeof posthog !== 'undefined') posthog.capture('hero_cta_clicked', {position: 'hero', plan: 'all-access', cadence: 'quarterly'}); if(typeof gtag !== 'undefined') gtag('event', 'printprintmembership_signup_intent', {currency: 'USD', value: 24.00, plan_type: 'all-access', billing_cycle: 'quarterly', button_location: 'hero', source_page: 'printmembership_landing'});">Become a Member</a>
+            <a href="https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1580236966%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="hero-cta" onclick="if(typeof posthog !== 'undefined') posthog.capture('hero_cta_clicked', {position: 'hero', plan: 'all-access', cadence: 'quarterly'}); if(typeof gtag !== 'undefined') gtag('event', 'printprintmembership_signup_intent', {currency: 'USD', value: 24.00, plan_type: 'all-access', billing_cycle: 'quarterly', button_location: 'hero', source_page: 'printmembership_landing'});">Become a Member</a>
             <p class="hero-stats">8,000+ members • Cancel anytime</p>
         </div>
     </section>
@@ -577,15 +577,15 @@
                     <!-- Media -->
                     <div class="pricing-card" data-cadence="quarterly" data-plan="media">
                         <h3>Media</h3>
-                        <div class="price" id="media-price">$12</div>
+                        <div class="price" id="media-price">$15</div>
                         <div class="billing-period" id="media-billing">per quarter</div>
-                        <div class="savings" id="media-savings" style="display: none;">SAVE 16%</div>
+                        <div class="savings" id="media-savings" style="display: none;">SAVE 17%</div>
                         <ul class="features-list">
                             <li>Exclusive Content</li>
                             <li>Newsletters</li>
                             <li>Read Ad-Free</li>
                         </ul>
-                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925585574%26items%5B0%5D%5Bselling_plan%5D%3D1580204198%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'media', cadence: 'quarterly', position: 'pricing-grid'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 12.00, plan_type: 'media', billing_cycle: 'quarterly', button_location: 'pricing_grid', source_page: 'printmembership_landing'})">Continue</a>
+                        <a href="https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925585574%26items%5B0%5D%5Bselling_plan%5D%3D1580204198%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'media', cadence: 'quarterly', position: 'pricing-grid'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 12.00, plan_type: 'media', billing_cycle: 'quarterly', button_location: 'pricing_grid', source_page: 'printmembership_landing'})">Continue</a>
                     </div>
 
                     <!-- All Access (Featured) -->
@@ -593,16 +593,16 @@
                         <div class="mp-badge" aria-hidden="true">MOST POPULAR</div>
                         <h3>All Access</h3>
                         <div class="original-price" id="allaccess-original">$45</div>
-                        <div class="price" id="allaccess-price">$24</div>
+                        <div class="price" id="allaccess-price">$28</div>
                         <div class="billing-period" id="allaccess-billing">per quarter</div>
-                        <div class="savings" id="allaccess-savings">FREE ZINE + SAVE 47%</div>
+                        <div class="savings" id="allaccess-savings">FREE ZINE + SAVE 38%</div>
                         <ul class="features-list">
                             <li>Everything in Media</li>
                             <li>30% Off Products</li>
                             <li>Perks from Our Partners</li>
                             <li>FREE Seasonal Print Magazine</li>
                         </ul>
-                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1580236966%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'all-access', cadence: 'quarterly', position: 'pricing-grid', featured: true}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 24.00, plan_type: 'all-access', billing_cycle: 'quarterly', button_location: 'pricing_grid', featured: true})">Get My First Magazine</a>
+                        <a href="https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1580236966%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'all-access', cadence: 'quarterly', position: 'pricing-grid', featured: true}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 24.00, plan_type: 'all-access', billing_cycle: 'quarterly', button_location: 'pricing_grid', featured: true})">Get My First Magazine</a>
                     </div>
 
                     <!-- Support -->
@@ -617,20 +617,20 @@
                             <li>Sponsor Gender Affirming Product Donations</li>
                             <li>Priority Support</li>
                         </ul>
-                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D46214081347750%26items%5B0%5D%5Bselling_plan%5D%3D2080374950%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'support', cadence: 'quarterly', position: 'pricing-grid'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 135.00, plan_type: 'support', billing_cycle: 'quarterly', button_location: 'pricing_grid', source_page: 'printmembership_landing'})">Continue</a>
+                        <a href="https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D46214081347750%26items%5B0%5D%5Bselling_plan%5D%3D2080374950%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'support', cadence: 'quarterly', position: 'pricing-grid'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 135.00, plan_type: 'support', billing_cycle: 'quarterly', button_location: 'pricing_grid', source_page: 'printmembership_landing'})">Continue</a>
                     </div>
-
+                    
                     <!-- Monthly Cards -->
                     <div class="pricing-card" data-cadence="monthly" data-plan="media">
                         <h3>Media</h3>
-                        <div class="price">$4</div>
+                        <div class="price">$6</div>
                         <div class="billing-period">per month</div>
                         <ul class="features-list">
                             <li>Exclusive Content</li>
                             <li>Newsletters</li>
                             <li>Read Ad-Free</li>
                         </ul>
-                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925585574%26items%5B0%5D%5Bselling_plan%5D%3D1575026854%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'media', cadence: 'monthly', position: 'pricing-grid'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 4.00, plan_type: 'media', billing_cycle: 'monthly', button_location: 'pricing_grid', source_page: 'printmembership_landing'})">Continue</a>
+                        <a href="https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925585574%26items%5B0%5D%5Bselling_plan%5D%3D1575026854%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'media', cadence: 'monthly', position: 'pricing-grid'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 4.00, plan_type: 'media', billing_cycle: 'monthly', button_location: 'pricing_grid', source_page: 'printmembership_landing'})">Continue</a>
                     </div>
 
                     <div class="pricing-card featured" data-cadence="monthly" data-plan="all-access">
@@ -643,7 +643,7 @@
                             <li>30% Off Products</li>
                             <li>Perks from Our Partners</li>
                         </ul>
-                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1574961318%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'all-access', cadence: 'monthly', position: 'pricing-grid', featured: true}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 15.00, plan_type: 'all-access', billing_cycle: 'monthly', button_location: 'pricing_grid', featured: true})">Continue</a>
+                        <a href="https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1574961318%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'all-access', cadence: 'monthly', position: 'pricing-grid', featured: true}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 15.00, plan_type: 'all-access', billing_cycle: 'monthly', button_location: 'pricing_grid', featured: true})">Continue</a>
                     </div>
 
                     <div class="pricing-card" data-cadence="monthly" data-plan="support">
@@ -655,9 +655,9 @@
                             <li>Sponsor Gender Affirming Product Donations</li>
                             <li>Priority Support</li>
                         </ul>
-                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D46214081347750%26items%5B0%5D%5Bselling_plan%5D%3D2021261478%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'support', cadence: 'monthly', position: 'pricing-grid'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 50.00, plan_type: 'support', billing_cycle: 'monthly', button_location: 'pricing_grid', source_page: 'printmembership_landing'})">Continue</a>
+                        <a href="https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D46214081347750%26items%5B0%5D%5Bselling_plan%5D%3D2021261478%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'support', cadence: 'monthly', position: 'pricing-grid'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 50.00, plan_type: 'support', billing_cycle: 'monthly', button_location: 'pricing_grid', source_page: 'printmembership_landing'})">Continue</a>
                     </div>
-
+                    
                     <!-- Annual Cards -->
                     <div class="pricing-card" data-cadence="annually" data-plan="media">
                         <h3>Media</h3>
@@ -668,23 +668,23 @@
                             <li>Newsletters</li>
                             <li>Read Ad-Free</li>
                         </ul>
-                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925585574%26items%5B0%5D%5Bselling_plan%5D%3D1575059622%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'media', cadence: 'annually', position: 'pricing-grid'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 48.00, plan_type: 'media', billing_cycle: 'annually', button_location: 'pricing_grid', source_page: 'printmembership_landing'})">Continue</a>
+                        <a href="https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925585574%26items%5B0%5D%5Bselling_plan%5D%3D1575059622%26items%5B0%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'media', cadence: 'annually', position: 'pricing-grid'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 48.00, plan_type: 'media', billing_cycle: 'annually', button_location: 'pricing_grid', source_page: 'printmembership_landing'})">Continue</a>
                     </div>
 
                     <div class="pricing-card featured" data-cadence="annually" data-plan="all-access">
                         <div class="mp-badge" aria-hidden="true">MOST POPULAR</div>
                         <h3>All Access</h3>
                         <div class="original-price">$180</div>
-                        <div class="price">$48</div>
+                        <div class="price">$98</div>
                         <div class="billing-period">per year</div>
-                        <div class="savings">FREE ZINE + SAVE 73%</div>
+                        <div class="savings">FREE ZINE + SAVE 46%</div>
                         <ul class="features-list">
                             <li>Everything in Media</li>
                             <li>30% Off Products</li>
                             <li>Perks from Our Partners</li>
                             <li>FREE Seasonal Print Magazine</li>
                         </ul>
-                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1574994086%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'all-access', cadence: 'annually', position: 'pricing-grid', featured: true}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 48.00, plan_type: 'all-access', billing_cycle: 'annually', button_location: 'pricing_grid', featured: true})">Get My First Magazine</a>
+                        <a href="https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1574994086%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'all-access', cadence: 'annually', position: 'pricing-grid', featured: true}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 48.00, plan_type: 'all-access', billing_cycle: 'annually', button_location: 'pricing_grid', featured: true})">Get My First Magazine</a>
                     </div>
 
                     <div class="pricing-card" data-cadence="annually" data-plan="support">
@@ -698,7 +698,7 @@
                             <li>Sponsor Gender Affirming Product Donations</li>
                             <li>Priority Support</li>
                         </ul>
-                        <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D46214081347750%26items%5B0%5D%5Bselling_plan%5D%3D2021294246%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'support', cadence: 'annually', position: 'pricing-grid'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 500.00, plan_type: 'support', billing_cycle: 'annually', button_location: 'pricing_grid', source_page: 'printmembership_landing'})">Continue</a>
+                        <a href="https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D46214081347750%26items%5B0%5D%5Bselling_plan%5D%3D2021294246%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="pricing-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('pricing_button_clicked', {plan: 'support', cadence: 'annually', position: 'pricing-grid'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 500.00, plan_type: 'support', billing_cycle: 'annually', button_location: 'pricing_grid', source_page: 'printmembership_landing'})">Continue</a>
                     </div>
             </div>
         </div>
@@ -709,7 +709,7 @@
         <div class="container">
             <h2>See What Everyone's Talking About</h2>
             <p class="subtitle">Join thousands who discovered our magazine on TikTok</p>
-
+            
             <div class="tiktok-grid">
                 <div class="tiktok-video">
                     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@weareforthem/video/7530691670971600142" data-video-id="7530691670971600142" style="max-width: 605px;min-width: 325px;">
@@ -718,7 +718,7 @@
                         </section>
                     </blockquote>
                 </div>
-
+                
                 <div class="tiktok-video">
                     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@weareforthem/video/7535148523977755918" data-video-id="7535148523977755918" style="max-width: 605px;min-width: 325px;">
                         <section>
@@ -726,7 +726,7 @@
                         </section>
                     </blockquote>
                 </div>
-
+                
                 <div class="tiktok-video">
                     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@weareforthem/video/7547820930446183694" data-video-id="7547820930446183694" style="max-width: 605px;min-width: 325px;">
                         <section>
@@ -735,7 +735,7 @@
                     </blockquote>
                 </div>
             </div>
-
+            
             <div class="conversion-bridge">
                 Ready to join the community? Get your first magazine today!
             </div>
@@ -748,7 +748,7 @@
             <h2>Support Queer Print Media</h2>
             <p class="subtitle">Join the movement • Get your magazine • Build your collection</p>
             <p class="guarantee">Love your first magazine or get your money back - keep it either way</p>
-            <a href="https://shop.forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1580236966%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="final-cta-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('final_cta_clicked', {position: 'footer', plan: 'all-access', cadence: 'quarterly'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 24.00, plan_type: 'all-access', billing_cycle: 'quarterly', button_location: 'footer', source_page: 'printmembership_landing'})">Get My First Magazine</a>
+            <a href="https://forthem.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B0%5D%5Bid%5D%3D44792925257894%26items%5B0%5D%5Bselling_plan%5D%3D1580236966%26items%5B0%5D%5Bquantity%5D%3D1%26items%5B1%5D%5Bid%5D%3D46416228581542%26items%5B1%5D%5Bquantity%5D%3D1%26return_to%3D%2Fcheckout" class="final-cta-btn" onclick="if(typeof posthog !== 'undefined') posthog.capture('final_cta_clicked', {position: 'footer', plan: 'all-access', cadence: 'quarterly'}); if(typeof gtag !== 'undefined') gtag('event', 'printmembership_signup_intent', {currency: 'USD', value: 24.00, plan_type: 'all-access', billing_cycle: 'quarterly', button_location: 'footer', source_page: 'printmembership_landing'})">Get My First Magazine</a>
             <p class="terms">Billed quarterly • Cancel anytime • Keep your magazine</p>
         </div>
     </section>
@@ -839,35 +839,5 @@
             });
         });
     </script>
-</body>
-</html>
-
-
-=====================================
-
-STEP 2: Upload Images
-
-You'll need to upload these 2 files to the printmembership folder:
-- FT x AS Black.png (from your computer)
-- zine photo compressed.jpg (from your computer)
-
-STEP 3: Update Root index.html with Redirect
-
-Replace the existing index.html content with this:
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <script>
-        // Redirect to the new printmembership path
-        window.location.href = '/printmembership/';
-    </script>
-    <meta http-equiv="refresh" content="0; url=/printmembership/">
-</head>
-<body>
-    <p>If you are not redirected automatically, <a href="/printmembership/">click here</a>.</p>
 </body>
 </html>
